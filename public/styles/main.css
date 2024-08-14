@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
+
+:root {
+  --background-color: #6eacda;
+  --font-family: "Roboto", sans-serif;
+  --input-background: #f2f2f2;
+  --button-background: #021526;
+  --button-color: #ffffff;
+  --label-background: #e5e5e5;
+  --label-background-hover: #f2f2f2;
+  --label-background-active: #ffffff;
+  --canvas-background: #e2e2b6;
+  --canvas-stroke: #21252b;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+body {
+  background: var(--background-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+input {
+  font-family: var(--font-family);
+  outline: none;
+  background: var(--input-background);
+  width: 100%;
+  border: none;
+  margin-bottom: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+button {
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  outline: none;
+  background: var(--button-background);
+  border: none;
+  padding: 15px;
+  color: var(--button-color);
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.form-controls {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.form-controls > label {
+  background: var(--label-background);
+  font-size: 13px;
+  line-height: 49px;
+  cursor: pointer;
+  padding: 0 20px;
+  transition: background 0.1s;
+  display: inline-block;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.form-controls > label:hover {
+  background: var(--label-background-hover);
+}
+
+.form-controls > input[type="submit"] {
+  display: none;
+}
+
+.form-controls > input[type="submit"]:checked + label {
+  background: var(--label-background-active);
+  cursor: default;
+}
+
+@media screen and (min-width: 670px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .form-controls {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+  }
+
+  button {
+    width: auto;
+  }
+}
+
+/* Typography */
+.typography {
+  color: var(--typography-color);
+}
+
+.typography h1,
+.typography h2,
+.typography h3,
+.typography h4,
+.typography h5,
+.typography h6 {
+  margin-top: 40px;
+  padding: 0;
+  text-align: left;
+  color: var(--typography-heading-color);
+}
+
+.typography h1 {
+  font-size: 40px;
+  line-height: 60px;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.typography h2 {
+  font-size: 32px;
+  line-height: 48px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.typography h3 {
+  font-size: 26px;
+  line-height: 38px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.typography h4 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.typography h5 {
+  font-size: 15px;
+  line-height: 23px;
+  text-transform: uppercase;
+}
+
+.typography h6 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.typography p {
+  margin-top: 20px;
+  line-height: 20px;
+  text-align: left;
+}
+
+.typography ul,
+.typography ol {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.typography li {
+  position: relative;
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.typography li ul,
+.typography li ol {
+  margin-top: 5px;
+}
+
+.typography ul li:before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 6px;
+  height: 4px;
+  background: #404040;
+}
+
+.typography ol {
+  counter-reset: list1;
+}
+
+.typography ol > li:before {
+  counter-increment: list1;
+  content: counter(list1) ".";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.typography a {
+  text-decoration: underline;
+  color: var(--link-color);
+}
+
+.typography a:hover {
+  text-decoration: none;
+}
+
+.ag-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 3rem 1rem;
+  opacity: 1;
+  transition: opacity 0.5s;
+  z-index: -1;
+}
+
+.ag-canvas_svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin-left: 1rem;
+}
+
+.ag-canvas_svg path {
+  fill: var(--canvas-background);
+  stroke: var(--canvas-stroke);
+  stroke-width: 0.5;
+  transition: fill 0.5s, stroke 0.5s;
+}
+
+.total-count {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 670px) {
+  .ag-canvas {
+    flex-flow: row wrap;
+    height: auto;
+    padding: 4rem 1rem 1rem;
+    margin-top: 0;
+  }
+  .ag-canvas_svg {
+    max-height: calc(100% - 6rem);
+    margin-left: 0;
+  }
+}
+
+/* form {
+  display: inline;
+} */
+
+/* button[type="submit"] {
+  background-color: var(--delete-button-background);
+  color: var(--button-color);
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+} */
+
+.center-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center form elements horizontally */
+  justify-content: center;
+  gap: 20px; /*Space between form elements*/
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%; /* Full width of the container */
+  max-width: 400px; /* Max width for the form */
+  background-color: var(--input-background); /* Form background color */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+  font-family: var(--font-family);
+  outline: none;
+  background: var(--input-background);
+  width: calc(100% - 30px); /* Full width minus padding */
+  border: none;
+  margin-bottom: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
+}
+button[type="submit"] {
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  outline: none;
+  background: var(--button-background);
+  border: none;
+  padding: 15px;
+  color: var(--button-color);
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%; /* Make button full width */
+}
+
+/* Visited Cities Section */
+
+section {
+  background-color: var(--section-background);
+  color: var(--section-text-color);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e5e5e5;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
