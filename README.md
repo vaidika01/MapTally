@@ -1,13 +1,13 @@
-# Travel Tracker
+# MapTally
 
-Travel Tracker is a web application that allows users to keep track of the countries and cities they have visited. Users can add countries and cities to their profile, see a visual map of their visited countries, and manage their travel history.
+MapTally is a web application that allows users to keep track of the countries and cities they have visited. Users can add countries and cities to their profile, see a visual map of their visited countries, and manage their travel history.
 
 ## Features
 
 - Add family members to track their travels.
 - Track visited countries and cities with a visual representation on the map.
 - Input validation for countries and cities (no empty or invalid entries).
-- Display of total countries and visited cities.
+- Display the total countries and cities visited.
 - Simple and intuitive user interface.
 
 ## Technologies Used
