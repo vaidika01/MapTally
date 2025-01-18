@@ -1,4 +1,4 @@
-# MapTally
+# MapTally (Family Travel Tracker)
 
 MapTally is a web application that allows users to keep track of the countries and cities they have visited. Users can add countries and cities to their profile, see a visual map of their visited countries, and manage their travel history.
 
